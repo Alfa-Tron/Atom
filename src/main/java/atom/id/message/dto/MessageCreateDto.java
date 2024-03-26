@@ -4,9 +4,10 @@ import jakarta.validation.constraints.NotBlank;
 import lombok.Getter;
 import lombok.Setter;
 
+
 @Getter
 @Setter
-public class MessageUpdateDto {
+public class MessageCreateDto {
     @NotBlank
     private String text;
 

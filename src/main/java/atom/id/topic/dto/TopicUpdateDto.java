@@ -1,10 +1,16 @@
 package atom.id.topic.dto;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 
-import java.time.LocalDateTime;
+import jakarta.validation.constraints.NotBlank;
+import lombok.Getter;
+import lombok.NonNull;
+import lombok.Setter;
 
+@Getter
+@Setter
 public class TopicUpdateDto {
+    @NonNull
     private Long id;
+    @NotBlank
     private String name;
 }

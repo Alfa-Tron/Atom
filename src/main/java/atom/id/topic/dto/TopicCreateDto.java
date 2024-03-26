@@ -1,11 +1,7 @@
 package atom.id.topic.dto;
 
-import atom.id.message.dto.MessageDto;
-import javax.validation.Valid;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Positive;
-import javax.validation.constraints.PositiveOrZero;
+import atom.id.message.dto.MessageCreateDto;
+import jakarta.validation.constraints.NotBlank;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -14,6 +10,5 @@ import lombok.Setter;
 public class TopicCreateDto {
     @NotBlank
     private String topicName;
-    @NotNull
-    private MessageDto message;
+    private MessageCreateDto message;
 }

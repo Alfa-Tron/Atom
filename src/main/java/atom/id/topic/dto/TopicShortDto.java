@@ -1,11 +1,17 @@
 package atom.id.topic.dto;
 
 
-import java.time.LocalDateTime;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
 public class TopicShortDto {
     private Long id;
     private String topicName;
-    private LocalDateTime created;
 
+    public TopicShortDto(Long id, String topicName) {
+        this.id = id;
+        this.topicName = topicName;
+    }
 }

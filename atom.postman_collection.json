@@ -1,0 +1,879 @@
+{
+	"info": {
+		"_postman_id": "be2c4322-10bb-4a24-9fdb-9510e05ae88e",
+		"name": "atom",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "24094160"
+	},
+	"item": [
+		{
+			"name": "registration",
+			"item": [
+				{
+					"name": "регистрация юзера",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/register?username=user1&password=pass1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"register"
+							],
+							"query": [
+								{
+									"key": "username",
+									"value": "user1"
+								},
+								{
+									"key": "password",
+									"value": "pass1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "регистрация юзера2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/register?username=user1&password=pass1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"register"
+							],
+							"query": [
+								{
+									"key": "username",
+									"value": "user1"
+								},
+								{
+									"key": "password",
+									"value": "pass1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "регистрация админа",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/register?username=admin&password=admin",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"register"
+							],
+							"query": [
+								{
+									"key": "username",
+									"value": "admin"
+								},
+								{
+									"key": "password",
+									"value": "admin"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "вход как юзер",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/login?username=user1&password=pass1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"login"
+							],
+							"query": [
+								{
+									"key": "username",
+									"value": "user1"
+								},
+								{
+									"key": "password",
+									"value": "pass1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "добавить топик",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test\", function () {",
+									"    pm.response.to.have.status(201);",
+									"});",
+									"pm.test(\"Response is valid\", function () {",
+									"    pm.response.to.be.json;",
+									"    pm.response.to.have.jsonBody({",
+									"        \"id\": 1,",
+									"        \"topicName\": \"topic1\",",
+									"        \"authorName\": \"user1\",",
+									"        \"messages\": [",
+									"            {",
+									"                \"id\": 1,",
+									"                \"text\": \"message1\",",
+									"                \"author\": \"user1\",",
+									"            }",
+									"        ],",
+									"    });",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "  {\"topicName\": \"topic1\",\n  \"message\": {\n    \"text\": \"message1\"\n  }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:8080/user/topic"
+					},
+					"response": []
+				},
+				{
+					"name": "добавить топик2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test\", function () {",
+									"    pm.response.to.have.status(201);",
+									"});",
+									"pm.test(\"Response is valid\", function () {",
+									"    pm.response.to.be.json;",
+									"    pm.response.to.have.jsonBody({",
+									"        \"id\": 2,",
+									"        \"topicName\": \"topic2\",",
+									"        \"authorName\": \"user2\",",
+									"        \"messages\": [",
+									"            {",
+									"                \"id\": 2,",
+									"                \"text\": \"message2\",",
+									"                \"author\": \"user2\",",
+									"            }",
+									"        ],",
+									"    });",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "  {\"topicName\": \"topic2\",\n  \"message\": {\n    \"text\": \"message2\"\n  }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:8080/user/topic"
+					},
+					"response": []
+				},
+				{
+					"name": "получить топики",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Response is valid\", function () {",
+									"    pm.response.to.be.json;",
+									"    pm.response.to.have.jsonBody([",
+									"        {",
+									"            \"id\": 1,",
+									"            \"topicName\": \"topic1\"",
+									"        },",
+									"        {",
+									"            \"id\": 2,",
+									"            \"topicName\": \"topic2\"",
+									"        }",
+									"    ]);",
+									"});",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/user/topic?from=0&size=99",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user",
+								"topic"
+							],
+							"query": [
+								{
+									"key": "from",
+									"value": "0"
+								},
+								{
+									"key": "size",
+									"value": "99"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "обновить топик 1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Response is valid\", function () {",
+									"    pm.response.to.be.json;",
+									"    pm.response.to.have.jsonBody([",
+									"        {",
+									"            \"id\": 1,",
+									"            \"topicName\": \"topic1\"",
+									"        }",
+									"    ]);",
+									"});",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "  {\"id\": 1,\n  \"name\": \"обновил1\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:8080/user/topic"
+					},
+					"response": []
+				},
+				{
+					"name": "получить обнов топики",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Response is valid\", function () {",
+									"    pm.response.to.be.json;",
+									"    pm.response.to.have.jsonBody([",
+									"        {",
+									"            \"id\": 1,",
+									"            \"topicName\": \"обновил1\"",
+									"        },",
+									"        {",
+									"            \"id\": 2,",
+									"            \"topicName\": \"topic2\"",
+									"        }",
+									"    ]);",
+									"});",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/user/topic?from=0&size=99",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user",
+								"topic"
+							],
+							"query": [
+								{
+									"key": "from",
+									"value": "0"
+								},
+								{
+									"key": "size",
+									"value": "99"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "удалить топик",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 204\", function () {",
+									"    pm.response.to.have.status(204);",
+									"});",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "localhost:8080/user/topic/2"
+					},
+					"response": []
+				},
+				{
+					"name": "получить топики с удалением",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Response is valid\", function () {",
+									"    pm.response.to.be.json;",
+									"    pm.response.to.have.jsonBody([",
+									"        {",
+									"            \"id\": 1,",
+									"            \"topicName\": \"обновил1\"",
+									"        }",
+									"    ]);",
+									"});",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/user/topic?from=0&size=99",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user",
+								"topic"
+							],
+							"query": [
+								{
+									"key": "from",
+									"value": "0"
+								},
+								{
+									"key": "size",
+									"value": "99"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "добавить сообщение",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {",
+									"    pm.response.to.have.status(201);",
+									"});",
+									"",
+									"pm.test(\"Response is valid\", function () {",
+									"    pm.response.to.be.json;",
+									"    pm.response.to.have.jsonBody({",
+									"        \"id\": 3,",
+									"        \"text\": \"message3\",",
+									"        \"author\": \"user1\",",
+									"        \"created\": \"2024-03-26T11:00:25.206037\"",
+									"    });",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "  {\"text\": \"message3\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:8080/user/topic/1"
+					},
+					"response": []
+				},
+				{
+					"name": "добавить сообщение",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {",
+									"    pm.response.to.have.status(201);",
+									"});",
+									"",
+									"pm.test(\"Response is valid\", function () {",
+									"    pm.response.to.be.json;",
+									"    pm.response.to.have.jsonBody({",
+									"        \"id\": 3,",
+									"        \"text\": \"message4\",",
+									"        \"author\": \"user1\",",
+									"        \"created\": \"2024-03-26T11:00:25.206037\"",
+									"    });",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "  {\"text\": \"message4\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:8080/user/topic/1"
+					},
+					"response": []
+				},
+				{
+					"name": "добавить сообщение",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {",
+									"    pm.response.to.have.status(201);",
+									"});",
+									"",
+									"pm.test(\"Response is valid\", function () {",
+									"    pm.response.to.be.json;",
+									"    pm.response.to.have.jsonBody({",
+									"        \"id\": 3,",
+									"        \"text\": \"message4\",",
+									"        \"author\": \"user1\",",
+									"        \"created\": \"2024-03-26T11:00:25.206037\"",
+									"    });",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "  {\"text\": \"message4\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:8080/user/topic/1"
+					},
+					"response": []
+				},
+				{
+					"name": "получить сообщения топика",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Response is valid\", function () {",
+									"    pm.response.to.be.json;",
+									"    pm.response.to.have.jsonBody(\"length\", 4);",
+									"",
+									"    var jsonData = pm.response.json();",
+									"    jsonData.forEach(function(message) {",
+									"        pm.expect(message).to.have.keys(\"id\", \"text\", \"author\", \"created\");",
+									"    });",
+									"});",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/user/topic/1?from=0&size=99",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user",
+								"topic",
+								"1"
+							],
+							"query": [
+								{
+									"key": "from",
+									"value": "0"
+								},
+								{
+									"key": "size",
+									"value": "99"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "получить сообщения топика Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Проверка наличия поля id\", function () {",
+									"    pm.response.to.have.jsonBody('id');",
+									"});",
+									"",
+									"pm.test(\"Проверка наличия поля text\", function () {",
+									"    pm.response.to.have.jsonBody('text');",
+									"});",
+									"",
+									"pm.test(\"Проверка наличия поля author\", function () {",
+									"    pm.response.to.have.jsonBody('author');",
+									"});",
+									"",
+									"pm.test(\"Проверка наличия поля created\", function () {",
+									"    pm.response.to.have.jsonBody('created');",
+									"});",
+									"",
+									"pm.test(\"Проверка значения поля id\", function () {",
+									"    pm.expect(pm.response.json().id).to.eql(4);",
+									"});",
+									"",
+									"pm.test(\"Проверка значения поля text\", function () {",
+									"    pm.expect(pm.response.json().text).to.eql(\"message4\");",
+									"});",
+									"",
+									"pm.test(\"Проверка значения поля author\", function () {",
+									"    pm.expect(pm.response.json().author).to.eql(\"user1\");",
+									"});",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "  {\n  \"text\": \"обновил1\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:8080/user/message/4"
+					},
+					"response": []
+				},
+				{
+					"name": "удалить сообщение",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 204\", function () {",
+									"    pm.response.to.have.status(204);",
+									"});",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "localhost:8080/user/message/4"
+					},
+					"response": []
+				},
+				{
+					"name": "получить сообщения топика Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Response is valid\", function () {",
+									"    pm.response.to.be.json;",
+									"    pm.response.to.have.jsonBody(\"length\", 3);",
+									"",
+									"    var jsonData = pm.response.json();",
+									"    jsonData.forEach(function(message) {",
+									"        pm.expect(message).to.have.keys(\"id\", \"text\", \"author\", \"created\");",
+									"    });",
+									"});",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/user/topic/1?from=0&size=99",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user",
+								"topic",
+								"1"
+							],
+							"query": [
+								{
+									"key": "from",
+									"value": "0"
+								},
+								{
+									"key": "size",
+									"value": "99"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "user2",
+			"item": [
+				{
+					"name": "вход как юзер2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/login?username=use2&password=pas2",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"login"
+							],
+							"query": [
+								{
+									"key": "username",
+									"value": "use2"
+								},
+								{
+									"key": "password",
+									"value": "pas2"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
